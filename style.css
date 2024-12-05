@@ -1,0 +1,131 @@
+/* Reset margins and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f3ee;
+  text-align: center;
+  color: #463f3a;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 5vmin;
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The game grid container */
+.game {
+  height: 60vmin; /* Adjusts size proportionally to the viewport */
+  width: 60vmin; /* Matches height for a square grid */
+  display: flex; /* Flexbox for layout */
+  flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+  gap: 1.5vmin; /* Space between grid buttons */
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 18vmin; /* Size of each box, scaled for responsiveness */
+  width: 18vmin;
+  border: none;
+  border-radius: 15px;
+  background-color: #e0afa0; /* Default box color */
+  cursor: pointer; /* Changes cursor to indicate interactivity */
+  transition-duration: 0.4s; /* Smooth transition for hover effect */
+  font-size: 8vmin;
+  color: #ffffff;
+  position: relative;
+  user-select: none;
+  -webkit-transition-duration: 0.4s;
+
+  /* Box shadow gives a raised effect */
+  box-shadow: 10px 10px 5px #8a817c;
+}
+
+/* Hover effect for buttons */
+.box:hover {
+  background-color: #463f3a; /* Darkens color when hovered */
+  transition-duration: 0.1s; /* Faster transition for hover feedback */
+}
+
+/* Glow effect when clicking a box */
+.box:after {
+  content: ""; /* Empty content used for styling */
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4em; /* Makes the glow circular */
+  box-shadow: 0 0 10px 40px #f4f3ee; /* Glow effect */
+  opacity: 0; /* Hidden by default */
+  transition: all 0.5s; /* Smooth appearance/disappearance */
+}
+
+.box:active:after {
+  box-shadow: 0 0 0 0 #f4f3ee;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Click effect for buttons */
+.box:active {
+  top: 1px; /* Simulates a button press visually */
+}
+
+/* Styling for Reset and New Game buttons */
+#reset-btn,
+#new-btn {
+  padding: 1rem; /* Padding for comfortable click area */
+  font-size: 1.25rem; /* Makes text easily readable */
+  background-color: #463f3a; /* Dark background for contrast */
+  color: #f4f3ee;
+  border: none;
+  border-radius: 1rem; /* Rounded edges for modern look */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Elevated button appearance */
+}
+
+#reset-btn:hover,
+#new-btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#reset-btn:active,
+#new-btn:active {
+  background-color: #7c7e7c;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#msg {
+  font-size: 7vmin;
+}
+
+.msg-container {
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Winner message container hidden by default */
+.hide {
+    display: none; /* Ensures the container does not affect layout */
+  }
